@@ -12,10 +12,6 @@ class AlarmController {
     static let shared = AlarmController()
     
     var alarms: [Alarm] = []
-    static let mockAlarms: [Alarm] = {
-        let firstAlarm = Alarm(fireDate: Date(), name: "Wake Up", enabled: true)
-        return[firstAlarm]
-    }()
 
 func addAlarm(fireDate: Date, name: String, enabled: Bool) {
     let newAlarm = Alarm(fireDate: fireDate, name: name, enabled: enabled)
@@ -26,6 +22,7 @@ func addAlarm(fireDate: Date, name: String, enabled: Bool) {
 func update(alarm: Alarm, fireDate: Date, name: String, enabled: Bool) {
     alarm.fireDate = fireDate
     alarm.name = name
+    alarm.enabled = enabled
     saveToPersistenceStore()
 }
 

@@ -13,6 +13,15 @@ protocol SwitchTableViewCellDelegate: AnyObject {
 }
 
 class SwitchTableViewCell: UITableViewCell {
+    
+    
+    var alarm: Alarm? {
+    didSet{
+       updateViews()
+    }
+    }
+    
+    
     //MARK: - Outlets
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -22,18 +31,16 @@ class SwitchTableViewCell: UITableViewCell {
     
     //MARK: - Actions
     @IBAction func switchValueChanged(_ sender: Any) {
+        delegate?.switchCellSwitchValueChanged(for: self)
     }
     
+
     
-    var alarm: Alarm?
-    
-    func updateViews(with alarm: Alarm) {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        let dateTime = formatter.string(for: AlarmController.shared.alarms)
-        guard dateTime != nil else {return}
+    func updateViews() {
         
-        timeLabel.text = dateTime
+        guard let alarm = alarm else {return}
+  
+        timeLabel.text = alarm.fireTimeAsString
         nameLabel.text = alarm.name
         alarmSwitch.isOn = alarm.enabled
     }

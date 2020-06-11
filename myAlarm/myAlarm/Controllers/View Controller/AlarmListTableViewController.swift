@@ -16,7 +16,6 @@ class AlarmListTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         tableView.reloadData()
     }
     // MARK: - Table view data source
@@ -30,8 +29,7 @@ class AlarmListTableViewController: UITableViewController {
 
         let alarm = AlarmController.shared.alarms[indexPath.row]
         cell.delegate = self
-        cell.updateViews(with: alarm)
-        
+        cell.alarm = alarm
         return cell
     }
 
@@ -60,6 +58,5 @@ class AlarmListTableViewController: UITableViewController {
             guard let indexPath = tableView.indexPath(for: cell) else {return}
             let settingToUpdate = AlarmController.shared.alarms[indexPath.row]
             AlarmController.toggleEnabled(alarm: settingToUpdate)
-            cell.updateViews(with: settingToUpdate)
         }
 }

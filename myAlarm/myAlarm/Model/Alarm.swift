@@ -21,6 +21,12 @@ class Alarm: Codable {
         self.enabled = enabled
         self.uuid = uuid
     }
+    var fireTimeAsString: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        return formatter.string(from: fireDate)
+    }
 }
 
 extension Alarm: Equatable {

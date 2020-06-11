@@ -24,14 +24,17 @@ class AlarmDetailTableViewController: UITableViewController {
     
     
     @IBAction func enableButtonTapped(_ sender: Any) {
+        alarmIsOn = !alarmIsOn
     }
     @IBAction func saveButtonTapped(_ sender: Any) {
-       guard let alarmName = alarmNameTextField.text, !alarmName.isEmpty else {return}
+       guard let alarmName = alarmNameTextField.text else {return}
+        
+        let date = datePicker.date
 
         if let alarm = alarm {
-           AlarmController.shared.update(alarm: alarm, fireDate: Date(), name: alarmName, enabled: true)
+           AlarmController.shared.update(alarm: alarm, fireDate: date, name: alarmName, enabled: alarmIsOn)
        } else {
-           AlarmController.shared.addAlarm(fireDate: Date(), name: alarmName, enabled: true)
+           AlarmController.shared.addAlarm(fireDate: date, name: alarmName, enabled: alarmIsOn)
         }
         self.navigationController?.popViewController(animated: true)
         updateViews()
@@ -40,8 +43,7 @@ class AlarmDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let alarm = alarm else {return}
-        alarmNameTextField.text = alarm.name
+        updateViews()
     }
 
         func updateViews() {

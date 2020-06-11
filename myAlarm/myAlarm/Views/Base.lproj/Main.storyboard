@@ -26,16 +26,16 @@
                                             <rect key="frame" x="8" y="8" width="398" height="84"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="mQ8-d8-0qx">
-                                                    <rect key="frame" x="0.0" y="3" width="130" height="78"/>
+                                                    <rect key="frame" x="0.0" y="12" width="130" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="382-yp-BqJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="105.5" height="54"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="71" height="36"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yo0-Cg-V9d">
-                                                            <rect key="frame" x="0.0" y="54" width="48" height="24"/>
+                                                            <rect key="frame" x="0.0" y="36" width="48" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
